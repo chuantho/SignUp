@@ -1,0 +1,16 @@
+﻿@using SignUp.Models
+@model List<SignUpActivity>
+
+@{
+    ViewData["Title"] = $"Interested People";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <ol>
+        @foreach (SignUpActivity signUpActivity in Model)
+        {
+            <li>@signUpActivity.FirstName @signUpActivity.LastName: @String.Join(", ", signUpActivity.Activities)</li>
+        }
+    </ol>
+</p>

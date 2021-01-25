@@ -1,0 +1,86 @@
+﻿@model SignUp.ViewModel.HomeViewModel
+
+@{
+    ViewBag.Title = "Activity Sign Up Form";
+}
+<h1 class="text-center">Activity sign up form:</h1>
+<div class="text-left">
+    @using (Html.BeginForm("InterestedPeople", "Home"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <table>
+            <tr>
+                <td>
+                    First Name:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.SignUpActivity.FirstName, new { placeholder = "First Name", @class = "form-input" })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(m => m.SignUpActivity.FirstName, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last Name:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.SignUpActivity.LastName, new { placeholder = "Last Name", @class = "form-input" })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(m => m.SignUpActivity.LastName, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.SignUpActivity.EmailAddress, new { placeholder = "JohnDoe@gmail.com", @class = "form-input" })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(m => m.SignUpActivity.EmailAddress, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Activity:
+                </td>
+                <td>
+                    @for (int i = 0; i < Model.Activities.AvailableActivities.Count(); i++)
+                    {
+                        <div class="checkbox">
+                            <label>
+                                @Html.HiddenFor(m => m.Activities.AvailableActivities[i].Name)
+                                @Html.CheckBoxFor(m => m.Activities.AvailableActivities[i].Selected)
+                                @Html.LabelFor(m => m.Activities.AvailableActivities[i].Name, Model.Activities.AvailableActivities[i].Name)
+                            </label>
+                        </div>
+                    }
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(m => m.SignUpActivity.Activities, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comments:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.SignUpActivity.Comments, new { placeholder = "Comments", @class = "form-input" })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    }
+</div>
+
+<script>
+    function activityChecked(cb) {
+        alert(cb.Checked);
+    }
+</script>

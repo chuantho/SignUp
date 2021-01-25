@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QKqKsPaKVX6GHG6ckO02Mgn4X21HQO18k4fgcOhyDvGcVehi1BUS0AJCKrYBih7VBxcA7NISHll5kyM507NmJg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AnthonyC\\Documents\\Misc\\SignUp - Final\\SignUp\\SignUp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AnthonyC\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
